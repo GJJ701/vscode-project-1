@@ -1,0 +1,18 @@
+{
+  "rootDirectory": "hyowang"
+}
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "hyowang/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/hyowang/$1"
+    }
+  ]
+}
