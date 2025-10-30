@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="imags/guilin.ico">
+    <title>桂林旅游网</title>
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/home.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5047238_9qrnpwmp6n6.css">
+    <link rel="stylesheet" href="CSS/carousel.css">
+</head>
+<body>
+    <div class="top-bar">
+        <div class="container">
+            <div class="logo">
+                <img src="imags/logo-2-1.17ef4ac1.jpg"/>
+            </div>
+            <div class="nav-links">
+                <a href="#">首页</a>
+                <a href="#">旅游资讯</a>
+                <a href="#">文化桂林</a>
+                <a href="#">玩转桂林</a>
+                <a href="#">服务中心</a>
+                <i class="iconfont icon-sousuotubiao search"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="imags/01.jpg" alt="Slide 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="imags/02.jpg" alt="Slide 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="imags/03.jpg" alt="Slide 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="imags/04.jpg" alt="Slide 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="imags/05.jpg" alt="Slide 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="imags/06.jpg" alt="Slide 6">
+                </div>
+            </div>
+
+            <div class="indicators-container">
+                <div class="indicator" data-index="0" onclick="cyclePlay(0)"></div>
+                <div class="indicator active" data-index="1" onclick="cyclePlay(1)"></div>
+                <div class="indicator" data-index="2" onclick="cyclePlay(2)"></div>
+                <div class="indicator" data-index="3" onclick="cyclePlay(3)"></div>
+                <div class="indicator" data-index="4" onclick="cyclePlay(4)"></div>
+                <div class="indicator" data-index="5" onclick="cyclePlay(5)"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const carousel = document.querySelector('.carousel-inner');
+        const imgCount = document.querySelectorAll('.carousel-item img').length;
+        let currentIndex = 0;
+        const indicators = document.querySelectorAll('.indicator');
+
+        function cyclePlay(index) {
+            if (index !== undefined) currentIndex = index;
+            else currentIndex = (currentIndex+1) % imgCount;
+            console.log(currentIndex)
+            carousel.style.transform = `translateY(-${currentIndex * 100}%)`;
+            indicators.forEach((indicator) => indicator.classList.remove('active'));
+            indicators[currentIndex].classList.add('active');
+        }
+
+        const interval = setInterval(cyclePlay,5000)
+
+        document.querySelector('.carousel-inner').addEventListener('mouseenter',() => {
+            clearInterval(interval);
+        });
+
+        document.querySelector('.carousel-inner').addEventListener('mouseleave',() => {
+            const interval = setInterval(cyclePlay,5000);
+        });
+    </script>
+
+<div class="floor">
+    <div class="content-one">
+        <div class="video-container">
+            <div class="video-item">
+                <video src="video/01.mp4"></video>
+            </div>
+            <div class="video-item">
+                <video src="video/02.mp4"></video>
+            </div>
+            <ul class="video-indicators">
+                <li class="video-indicator-item"></li>
+                <li class="video-indicator-item"></li>
+            </ul>
+        </div>
+        <div class="content-list">
+            <div class="content-item">
+                <div class="title">
+                    <div class="title-left">
+                        <img src="imags/资讯.jpg">
+                        <span class="en-name">旅游资讯</span>
+                        <span class="ch-name">Travel News</span>
+                    </div>
+                    <a class="more ">查看更多</a>
+                </div>
+                <div class="list-container">
+                    <div class="list-item">
+                        <p>桂林文旅携手vivo邀您一同拍摄！桂海晴岚vivo拍拍驿站免费旅拍体验来啦！</p>
+                        <span>2025-10-12</span>
+                    </div>
+                    <div class="list-item">
+                        <p>活动详情 | 李宴戏剧摄影&戏剧讲座</p>
+                        <span>2025-10-12</span>
+                    </div>
+                    <div class="list-item">
+                        <p>中法共创奇幻剧《海底两万里》即将亮相2025桂林艺术节</p>
+                        <span>2025-10-10</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-item">
+                <div class="title">
+                    <div class="title-left">
+                        <img src="imags/鞭炮.jpg">
+                        <span class="en-name">节庆活动</span>
+                        <span class="ch-name">Festival Activities</span>
+                    </div>
+                    <a class="more ">查看更多</a>
+                </div>
+                <div class="item-list">
+                    <div class="list-container">
+                        <div class="list-item">
+                            <p>今日开票！2025致敬经典桂林山水音乐节</p>
+                            <span>2025-9-15</span>
+                        </div>
+                        <div class="list-item">
+                            <p>2025桂林龙脊“晒衣节”将举办两次，邀您来做客啦~</p>
+                            <span>2025-9-20</span>
+                        </div>
+                        <div class="list-item">
+                            <p>桂林平乐第十届妈祖文化节旅游节，榕津见！</p>
+                            <span>2025-10-10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="foot_container">
+        <div class="foot_list">
+            <img src="imags/微信.jpg" alt="" />
+            <div class="list_info">
+                <p>办公地址：桂林市临桂区公园北路桂林文广大厦</p>
+                <P>资询电话：0773-2800318        投诉电话：12345</P>
+                <p>版权所有@桂林市旅游公共服务管理处 备案号：桂ICP备20003722号</p>
+            </div>
+            <div class="foot_wx">
+                <div class="wx_font">
+                    <p>微</p>
+                    <p>信</p>
+                    <p>扫</p>
+                    <p>一</p>
+                    <p>扫</p>
+                </div>
+                <img src="imags/">
+            </div>
+        </div>
+    </div>
+</footer>
+    
+</body>
+</html>
